@@ -2,7 +2,9 @@ class Menu extends Phaser.Scene {
     constructor() {
         super("menuScene")
     }
-
+    preload(){
+        this.load.image("cannon", "./assets/sprites/cannon.png")
+    }
     create(){
         this.add.text(20, 20, "Menu Scene")
         keySPACE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE)
@@ -20,4 +22,4 @@ class Menu extends Phaser.Scene {
 
 }
 
-let keyC, keySPACE, keyG, keyM
+let keyC, keySPACE, keyG, keyM, keyLEFT, keyRIGHT
