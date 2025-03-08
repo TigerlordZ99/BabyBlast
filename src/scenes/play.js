@@ -14,6 +14,7 @@ class Play extends Phaser.Scene {
         bottomHalf.setOrigin(0, 0)
 
         this.add.text(20, 20, "Play Scene")
+        this.add.text(20, 50, "Press G for Game Over")
         keyG = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.G)
 
         this.p1Cannon = new Cannon(this, width / 2, height+20, "cannon", 0).setOrigin(0.5, 1)

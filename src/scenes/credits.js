@@ -5,6 +5,7 @@ class Credits extends Phaser.Scene {
 
     create(){
         this.add.text(20, 20, "Credits Scene")
+        this.add.text(20, 50, "Press M for Menu")
         keyM = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.M)
     }
 
