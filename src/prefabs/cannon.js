@@ -29,7 +29,7 @@ class Cannon extends Phaser.GameObjects.Sprite {
             }
             this.playSound()
         }
-
+        
         if (!keyLEFT.isDown && !keyRIGHT.isDown) {
             this.soundPlaying = false
             this.sfxTurret.stop()

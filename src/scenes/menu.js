@@ -4,6 +4,7 @@ class Menu extends Phaser.Scene {
     }
     preload(){
         this.load.image("cannon", "./assets/sprites/cannon.png")
+        this.load.image("laser", "./assets/sprites/laser.png")
         this.load.audio("sfx_turret", "./assets/audio/sfx_turret.mp3")
     }
     create(){
