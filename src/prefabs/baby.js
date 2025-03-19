@@ -18,6 +18,7 @@ class Baby extends Phaser.Physics.Arcade.Sprite {
         })
     }
 
+    //Get where the baby spawns from
     static getSpawnPoint(scene) {
         let width = scene.scale.width
         let height = scene.scale.height
@@ -28,6 +29,7 @@ class Baby extends Phaser.Physics.Arcade.Sprite {
         return {x, y, side}
     }
 
+    //Spawns the baby from a random x positon in the middle of the screen, going in a random direction
     randomizeMovement(side) {
         let angle
 
@@ -41,6 +43,7 @@ class Baby extends Phaser.Physics.Arcade.Sprite {
         this.body.setVelocity(Math.cos(angle) * speed, Math.sin(angle) * speed)
     }
 
+    //kill da baby
     playDeathAnimation() {
         this.body.setVelocity(0, 0)
         this.body.enable = false

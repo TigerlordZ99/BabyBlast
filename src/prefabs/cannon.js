@@ -10,9 +10,12 @@ class Cannon extends Phaser.GameObjects.Sprite {
         this.sfxTurret = scene.sound.add("sfx_turret")
         this.soundPlaying = false
         this.scene = scene
+        this.scene.events.on('shutdown', this.stopSound, this)
+        this.scene.events.on('sleep', this.stopSound, this)
     }
 
     update() {
+        //tilt cannon left
         if (keyLEFT.isDown) {
             this.angle -= this.rotationSpeed
             if (this.angle < this.minRotation) {
@@ -20,6 +23,8 @@ class Cannon extends Phaser.GameObjects.Sprite {
             }
             this.playSound()
         }
+
+        //tilt cannon right
         if (keyRIGHT.isDown) {
             this.angle += this.rotationSpeed
             if (this.angle > this.maxRotation) {
@@ -28,6 +33,7 @@ class Cannon extends Phaser.GameObjects.Sprite {
             this.playSound()
         }
         
+        //play sound on button press
         if (!keyLEFT.isDown && !keyRIGHT.isDown) {
             this.soundPlaying = false
             this.sfxTurret.stop()
@@ -38,6 +44,12 @@ class Cannon extends Phaser.GameObjects.Sprite {
         if (!this.soundPlaying) {
             this.sfxTurret.play({loop: true })
             this.soundPlaying = true
+        }
+    }
+    stopSound() {
+        if (this.sfxTurret) {
+            this.sfxTurret.stop()
+            this.soundPlaying = false
         }
     }
 }

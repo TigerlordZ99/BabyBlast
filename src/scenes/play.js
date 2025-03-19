@@ -40,6 +40,7 @@ class Play extends Phaser.Scene {
             loop: true
         })
 
+        //after 30 seconds spawn babies faster
         this.time.delayedCall(30000, this.increaseSpawnRate, [], this)
 
         this.scoreText = this.add.text(width - 40, 30, this.score, {
@@ -77,6 +78,7 @@ class Play extends Phaser.Scene {
         this.lasers.children.each(laser => {
             if (laser.active) laser.update()
         })
+        
         this.babies.children.each(baby => {
             if (baby.active) {
                 if (baby.update()) {
@@ -96,7 +98,7 @@ class Play extends Phaser.Scene {
 
     increaseSpawnRate() {
         this.babySpawner.remove()
-        
+        //spawn babies faster
         this.babySpawnTimer = this.time.addEvent({
             delay: this.spawnDelay / 2,
             callback: this.spawnBaby,

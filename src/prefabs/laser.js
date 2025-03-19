@@ -8,6 +8,7 @@ class Laser extends Phaser.Physics.Arcade.Sprite {
     }
 
     update() {
+        //destroy laser if it goes off screen
         if (this.x < 0 || this.x > this.scene.scale.width || this.y < 0 || this.y > this.scene.scale.height) {
             this.destroy()
         }

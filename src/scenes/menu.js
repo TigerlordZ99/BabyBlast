@@ -14,11 +14,22 @@ class Menu extends Phaser.Scene {
             frameWidth: 56,
             frameHeight: 116
         })
+        this.load.audio("bgm", "./assets/audio/background.mp3")
     }
     create(){
         let width = this.scale.width  
         let height = this.scale.height
-        
+        //set background music
+        let bgm = this.game.registry.get('backgroundMusic')
+        if (!bgm) {
+            bgm = this.sound.add('bgm', {
+                volume: 0.5,
+                loop: true
+            })
+            
+            bgm.play()
+            this.game.registry.set('backgroundMusic', bgm);
+        }
         let sky = this.add.rectangle(0, 0, width, height, 0x37D6FE)  
         sky.setOrigin(0, 0)
         

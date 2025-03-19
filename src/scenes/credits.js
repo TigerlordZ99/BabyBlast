@@ -22,7 +22,7 @@ class Credits extends Phaser.Scene {
             "Game Design: Madhav Ramakrishnan",
             "Art: Madhav Ramakrishnan",
             "Programming: Madhav Ramakrishnan",
-            "Sound Effects: Pixabay"
+            "Sound Effects and BGM: Pixabay"
         ]
         
         let yPosition = 180

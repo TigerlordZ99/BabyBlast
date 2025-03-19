@@ -1,3 +1,6 @@
+//Madhav Ramakrishnan
+//Components used: Text Objects, Animations, Timers, Physic Systems
+
 let config = {
     type: Phaser.AUTO,
     width: 640,
@@ -6,7 +9,7 @@ let config = {
         default: "arcade",
         arcade: {
             gravity: { y: 500 },
-            debug: true
+            debug: false
         }
     },
     scene: [ Menu, Play, GameOver, Credits ]
