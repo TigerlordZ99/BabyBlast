@@ -3,15 +3,13 @@ class Cannon extends Phaser.GameObjects.Sprite {
         super(scene, x, y, texture, frame)
         scene.add.existing(this)
         this.setOrigin(0.5, 0.5)
-        this.rotationSpeed = 1
+        this.rotationSpeed = 3
         this.minRotation = -45
         this.maxRotation = 45
         
         this.sfxTurret = scene.sound.add("sfx_turret")
         this.soundPlaying = false
-    }
-
-    fire() {
+        this.scene = scene
     }
 
     update() {
@@ -38,7 +36,7 @@ class Cannon extends Phaser.GameObjects.Sprite {
 
     playSound(){
         if (!this.soundPlaying) {
-            this.sfxTurret.play({ loop: true })
+            this.sfxTurret.play({loop: true })
             this.soundPlaying = true
         }
     }

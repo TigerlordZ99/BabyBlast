@@ -5,7 +5,13 @@ class Menu extends Phaser.Scene {
     preload(){
         this.load.image("cannon", "./assets/sprites/cannon.png")
         this.load.image("laser", "./assets/sprites/laser.png")
+        this.load.image("baby", "./assets/sprites/baby1.png")
+        this.load.image("park", "./assets/sprites/park.png")
         this.load.audio("sfx_turret", "./assets/audio/sfx_turret.mp3")
+        this.load.spritesheet("deathAnim", "./assets/sprites/deathAnim.png", {
+            frameWidth: 56,
+            frameHeight: 116
+        })
     }
     create(){
         this.add.text(20, 20, "Menu Scene")
