@@ -1,5 +1,5 @@
 //Madhav Ramakrishnan
-//Components used: Text Objects, Animations, Timers, Physic Systems
+//Components used: Text Objects, Animations, Timers, Physic Systems, Sound Effects
 
 let config = {
     type: Phaser.AUTO,
