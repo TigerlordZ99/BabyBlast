@@ -7,9 +7,8 @@ class Baby extends Phaser.Physics.Arcade.Sprite {
 
         this.setOrigin(0.5, 0.5)
         this.body.setAllowGravity(false)
-        this.body.setCollideWorldBounds(true)
-        this.body.onWorldBounds = true
-
+        this.body.setCollideWorldBounds(false)
+        this.spawnTime = scene.time.now
         this.randomizeMovement(spawnPoint.side)
 
         scene.physics.world.on("worldbounds", (body) => {
@@ -49,5 +48,14 @@ class Baby extends Phaser.Physics.Arcade.Sprite {
         this.on('animationcomplete', function() {
             this.destroy()
         }, this)
+    }
+
+    update(){
+        const width = this.scene.scale.width
+        const height = this.scene.scale.height
+        if (this.x <= 0 || this.x >= width || this.y <= 0 || this.y >= height) {
+            return true
+        }
+        return false
     }
 }

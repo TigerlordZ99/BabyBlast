@@ -3,10 +3,47 @@ class GameOver extends Phaser.Scene {
         super("gameOverScene")
     }
 
+    init(data) {
+        this.score = data.score || 0
+    }
+
     create(){
-        this.add.text(20, 20, "Game Over Scene")
-        this.add.text(20, 50, "Press M for Menu")
-        this.add.text(20, 80, "Press C for Credits")
+        let width = this.scale.width  
+        let height = this.scale.height
+       
+        let background = this.add.rectangle(0, 0, width, height, 0x000000)
+        background.setOrigin(0, 0)
+        
+        this.add.text(width/2, height/3, "GAME OVER", {
+            fontFamily: 'Arial',
+            fontSize: '64px',
+            fontStyle: 'bold',
+            color: '#FFFF00',
+            align: 'center'
+        }).setOrigin(0.5)
+
+        this.add.text(width/2, height/2, "Your Score: " + this.score, {
+            fontFamily: 'Arial',
+            fontSize: '32px',
+            fontStyle: 'bold',
+            color: '#FFFF00',
+            align: 'center'
+        }).setOrigin(0.5)
+        
+        this.add.text(width/2, height/2 + 70, "Press M to return to Menu", {
+            fontFamily: 'Arial',
+            fontSize: '24px',
+            color: '#FFFFFF',
+            align: 'center'
+        }).setOrigin(0.5)
+        
+        this.add.text(width/2, height/2 + 110, "Press C for Credits", {
+            fontFamily: 'Arial',
+            fontSize: '24px',
+            color: '#FFFFFF',
+            align: 'center'
+        }).setOrigin(0.5)
+        
         keyM = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.M)
         keyC = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.C)
     }
